@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expert Visuel & Photoshooting | Créations Premium</title>
+    
+    <!-- Tailwind CSS (Via CDN pour un rendu immédiat) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts (Montserrat & Open Sans) -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Configuration du Design System -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0f172a', // Slate 900
+                            light: '#1e293b', // Slate 800
+                            gold: '#fbbf24',  // Amber 400
+                            goldHover: '#d97706',
+                            text: '#f8fafc'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Open Sans', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Effet de verre (Glassmorphism) */
+        .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Gradient Text */
+        .text-gradient {
+            background: linear-gradient(to right, #fbbf24, #f59e0b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Animations */
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-brand-text font-sans antialiased overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-card transition-all duration-300 py-4">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <div class="text-2xl font-heading font-bold tracking-wider">
+                VISUAL<span class="text-brand-gold">EXPERT</span>
+            </div>
+            
+            <div class="hidden md:flex items-center space-x-8 text-sm font-semibold uppercase tracking-wide">
+                <a href="#comment-ca-marche" class="hover:text-brand-gold transition-colors" data-i18n="nav_process">Comment ça marche</a>
+                <a href="#avantages" class="hover:text-brand-gold transition-colors" data-i18n="nav_advantages">Avantages</a>
+                <a href="#tarifs" class="hover:text-brand-gold transition-colors" data-i18n="nav_pricing">Tarifs</a>
+                <a href="#faq" class="hover:text-brand-gold transition-colors">FAQ</a>
+            </div>
+
+            <button id="lang-toggle" class="border border-brand-gold text-brand-gold px-4 py-1 rounded-full text-xs font-bold hover:bg-brand-gold hover:text-brand-dark transition-all">
+                EN
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        <!-- Background decorative elements -->
+        <div class="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-gold opacity-10 blur-3xl rounded-full"></div>
+
+        <div class="container mx-auto px-6 text-center z-10 fade-in-up">
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-heading font-extrabold mb-6 leading-tight">
+                Transformez vos produits en <br>
+                <span class="text-gradient">Légendes Visuelles</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto" data-i18n="hero_sub">
+                Je convertis de simples visiteurs en clients fidèles grâce à des visuels publicitaires percutants et des photoshoots de haute qualité.
+            </p>
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+                <a href="#tarifs" class="bg-brand-gold text-brand-dark px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:scale-105 transition-all shadow-[0_0_20px_rgba(251,191,36,0.5)]" data-i18n="cta_start">
+                    Démarrer mon projet
+                </a>
+                <a href="#contact-bot" onclick="window.N8NChatbot.open()" class="border border-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-brand-dark transition-all" data-i18n="cta_contact">
+                    Me contacter
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Preuves de Qualité (Portfolio) -->
+    <section class="py-20 bg-brand-light">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-heading font-bold text-center mb-16">
+                La <span class="text-brand-gold">Qualité</span> qui Convertit
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Visuel Produit (Canette) -->
+                <div class="group relative overflow-hidden rounded-2xl shadow-2xl h-96 cursor-pointer">
+                    <img src="visuel2.png" alt="Visuel Publicitaire Jus" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
+                    <div class="absolute bottom-6 left-6">
+                        <span class="bg-brand-gold text-brand-dark text-xs font-bold px-2 py-1 rounded mb-2 inline-block">Publicité Produit</span>
+                        <h3 class="text-xl font-bold">Design 3D & Composition</h3>
+                    </div>
+                </div>
+
+                <!-- Photoshoot (Homme) -->
+                <div class="group relative overflow-hidden rounded-2xl shadow-2xl h-96 cursor-pointer mt-0 md:-mt-8">
+                    <img src="visuel1.png" alt="Photoshoot Mode" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
+                    <div class="absolute bottom-6 left-6">
+                        <span class="bg-brand-gold text-brand-dark text-xs font-bold px-2 py-1 rounded mb-2 inline-block">Portrait</span>
+                        <h3 class="text-xl font-bold">Photoshooting Pro</h3>
+                    </div>
+                </div>
+
+                <!-- Affiche (Foot) -->
+                <div class="group relative overflow-hidden rounded-2xl shadow-2xl h-96 cursor-pointer">
+                    <img src="visuel3.png" alt="Affiche Evènement Football" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
+                    <div class="absolute bottom-6 left-6">
+                        <span class="bg-brand-gold text-brand-dark text-xs font-bold px-2 py-1 rounded mb-2 inline-block">Évènementiel</span>
+                        <h3 class="text-xl font-bold">Affiche Impactante</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comment ça marche -->
+    <section id="comment-ca-marche" class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-heading font-bold text-center mb-16" data-i18n="nav_process">Comment ça marche ?</h2>
+            <div class="flex flex-col md:flex-row justify-center items-center gap-12">
+                <!-- Step 1 -->
+                <div class="text-center w-full md:w-1/3">
+                    <div class="w-20 h-20 bg-brand-light rounded-full flex items-center justify-center mx-auto mb-6 border-2 border-brand-gold">
+                        <i class="fas fa-comments text-3xl text-brand-gold"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">1. Discussion</h3>
+                    <p class="text-gray-400">Nous définissons vos objectifs via le chat ou par appel.</p>
+                </div>
+                <!-- Step 2 -->
+                <div class="text-center w-full md:w-1/3">
+                    <div class="w-20 h-20 bg-brand-light rounded-full flex items-center justify-center mx-auto mb-6 border-2 border-brand-gold">
+                        <i class="fas fa-paint-brush text-3xl text-brand-gold"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">2. Création</h3>
+                    <p class="text-gray-400">Je réalise le shooting ou le design selon vos standards.</p>
+                </div>
+                <!-- Step 3 -->
+                <div class="text-center w-full md:w-1/3">
+                    <div class="w-20 h-20 bg-brand-light rounded-full flex items-center justify-center mx-auto mb-6 border-2 border-brand-gold">
+                        <i class="fas fa-rocket text-3xl text-brand-gold"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">3. Livraison</h3>
+                    <p class="text-gray-400">Vous recevez vos fichiers HD prêts à convertir.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tarifs -->
+    <section id="tarifs" class="py-20 bg-brand-light relative">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-heading font-bold text-center mb-4" data-i18n="nav_pricing">Mes Tarifs</h2>
+            <p class="text-center text-gray-400 mb-16">Transparents et adaptés à vos besoins.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                
+                <!-- Photoshooting -->
+                <div class="glass-card p-8 rounded-2xl hover:border-brand-gold transition-all duration-300 flex flex-col">
+                    <div class="text-brand-gold text-4xl mb-4"><i class="fas fa-camera"></i></div>
+                    <h3 class="text-2xl font-bold mb-2">Photoshooting</h3>
+                    <p class="text-gray-400 mb-6 text-sm">Idéal pour portraits pro et réseaux sociaux.</p>
+                    <div class="text-4xl font-bold mb-8">£5 <span class="text-sm font-normal text-gray-500">/pers</span></div>
+                    <ul class="text-sm space-y-3 mb-8 text-gray-300 flex-grow">
+                        <li class="flex items-center"><i class="fas fa-check text-brand-gold mr-2"></i> 1 Personne</li>
+                        <li class="flex items-center"><i class="fas fa-check text-brand-gold mr-2"></i> Retouches incluses</li>
+                        <li class="flex items-center"><i class="fas fa-check text-brand-gold mr-2"></i> Haute Définition</li>
+                    </ul>
+                    <a href="#contact-bot" onclick="window.N8NChatbot.open()" class="block text-center border border-brand-gold text-brand-gold py-3 rounded-lg font-bold hover:bg-brand-gold hover:text-brand-dark transition-all">Commander</a>
+                </div>
+
+                <!-- Affiches (Populaire) -->
+                <div class="glass-card p-8 rounded-2xl border-brand-gold relative transform md:-translate-y-4 flex flex-col shadow-[0_0_30px_rgba(251,191,36,0.2)]">
+                    <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-brand-gold text-brand-dark text-xs font-bold px-3 py-1 rounded-full uppercase">Best Seller</div>
+                    <div class="text-brand-gold text-4xl mb-4"><i class="fas fa-calendar-alt"></i></div>
+                    <h3 class="text-2xl font-bold mb-2">Affiche Évènement</h3>
+                    <p class="text-gray-400 mb-6 text-sm">Pour remplir vos salles et événements.</p>
+                    <div class="text-4xl font-bold mb-8">£10 <span class="text-sm font-normal text-gray-500">/unité</span></div>
+                    <ul class="text-sm space-y-3 mb-8 text-gray-300 flex-grow">
+                        <li class="flex items-center"><i class="fas fa-check text-brand-gold mr-2"></i> Design Unique</li>
+                        <li class="flex items-center"><i class="fas fa-check text-brand-gold mr-2"></i> Format Print & Web</li>
+                        <li class="flex items-center"><i class="fas fa-check text-brand-gold mr-2"></i> Livraison rapide</li>
+                    </ul>
+                    <a href="#contact-bot" onclick="window.N8NChatbot.open()" class="block text-center bg-brand-gold text-brand-dark py-3 rounded-lg font-bold hover:bg-white transition-all">Commander</a>
+                </div>
+
+                <!-- Visuels Pub -->
+                <div class="glass-card p-8 rounded-2xl hover:border-brand-gold transition-all duration-300 flex flex-col">
+                    <div class="text-brand-gold text-4xl mb-4"><i class="fas fa-ad"></i></div>
+                    <h3 class="text-2xl font-bold mb-2">Visuel Publicitaire</h3>
+                    <p class="text-gray-400 mb-6 text-sm">Pour vendre vos produits instantanément.</p>
+                    <div class="text-4xl font-bold mb-8">£15 <span class="text-sm font-normal text-gray-500">/produit</span></div>
+                    <ul class="text-sm space-y-3 mb-8 text-gray-300 flex-grow">
+                        <li class="flex items-center"><i class="fas fa-check text-brand-gold mr-2"></i> Mise en scène 3D/Réelle</li>
+                        <li class="flex items-center"><i class="fas fa-check text-brand-gold mr-2"></i> Optimisé conversion</li>
+                        <li class="flex items-center"><i class="fas fa-check text-brand-gold mr-2"></i> Pack réseaux sociaux</li>
+                    </ul>
+                    <a href="#contact-bot" onclick="window.N8NChatbot.open()" class="block text-center border border-brand-gold text-brand-gold py-3 rounded-lg font-bold hover:bg-brand-gold hover:text-brand-dark transition-all">Commander</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-heading font-bold text-center mb-16">Ils m'ont fait confiance</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="glass-card p-6 rounded-xl">
+                    <p class="text-gray-300 italic mb-4">"Les visuels pour mon jus de fruit ont explosé mes ventes. Un travail d'une qualité exceptionnelle."</p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-gray-500 rounded-full mr-3"></div>
+                        <div>
+                            <h4 class="font-bold">Marc D.</h4>
+                            <span class="text-xs text-brand-gold">Entrepreneur</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass-card p-6 rounded-xl">
+                    <p class="text-gray-300 italic mb-4">"L'affiche du tournoi universitaire était incroyable. Tout le monde en parlait sur le campus."</p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-gray-500 rounded-full mr-3"></div>
+                        <div>
+                            <h4 class="font-bold">Sarah L.</h4>
+                            <span class="text-xs text-brand-gold">Organisatrice</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="py-20 bg-brand-light">
+        <div class="container mx-auto px-6 max-w-3xl">
+            <h2 class="text-3xl font-heading font-bold text-center mb-12">F.A.Q</h2>
+            <div class="space-y-4">
+                <details class="glass-card rounded-lg p-4 cursor-pointer">
+                    <summary class="font-bold text-brand-gold">Quels sont les délais de livraison ?</summary>
+                    <p class="mt-2 text-gray-300">En général, je livre les premières propositions sous 48h selon la complexité du projet.</p>
+                </details>
+                <details class="glass-card rounded-lg p-4 cursor-pointer">
+                    <summary class="font-bold text-brand-gold">Puis-je demander des modifications ?</summary>
+                    <p class="mt-2 text-gray-300">Oui, chaque forfait inclut jusqu'à 2 révisions pour s'assurer que le visuel vous convient parfaitement.</p>
+                </details>
+                <details class="glass-card rounded-lg p-4 cursor-pointer">
+                    <summary class="font-bold text-brand-gold">Comment se passe le paiement ?</summary>
+                    <p class="mt-2 text-gray-300">Le paiement se fait de manière sécurisée avant le début du projet ou à la livraison selon le montant.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-10 border-t border-gray-800 text-center">
+        <p class="text-gray-500">&copy; 2024 VisualExpert. Tous droits réservés.</p>
+    </footer>
+
+    <!-- WIDGET CONFIGURATION -->
+    <script>
+        window.N8NChatbotConfig = {
+            // REMPLACER L'URL CI-DESSOUS PAR VOTRE PROPRE WEBHOOK N8N
+            apiUrl: 'https://votre-backend-n8n.com/webhook/chat-endpoint', 
+            
+            theme: 'dark', // Thème sombre pour aller avec le site
+            colors: {
+                primary: '#fbbf24',      // Couleur Or du site
+                secondary: '#1e293b',    // Slate 800
+                background: '#0f172a',   // Slate 900
+                text: '#f8fafc',
+            },
+            texts: {
+                title: 'Studio Assistant',
+                placeholder: 'Je veux un visuel pour...',
+                welcomeMessage: '👋 Bonjour ! Prêt à sublimer votre image ? Dites-moi ce dont vous avez besoin (Affiche, Photoshoot, Produit).',
+            },
+            features: {
+                attachments: true, // Permettre au client d'envoyer des exemples
+                enableVoiceRecording: true // Permettre les notes vocales
+            }
+        };
+    </script>
+    
+    <!-- CHARGEMENT DU WIDGET -->
+    <script src="https://widget.bovo-digital.tech/n8n-chat-widget.js" async></script>
+
+    <!-- SCRIPTS LOGIQUE (Langue) -->
+    <script>
+        const langToggle = document.getElementById('lang-toggle');
+        let currentLang = 'fr';
+
+        const translations = {
+            fr: {
+                nav_process: "Comment ça marche",
+                nav_advantages: "Avantages",
+                nav_pricing: "Tarifs",
+                hero_sub: "Je convertis de simples visiteurs en clients fidèles grâce à des visuels publicitaires percutants et des photoshoots de haute qualité.",
+                cta_start: "Démarrer mon projet",
+                cta_contact: "Me contacter"
+            },
+            en: {
+                nav_process: "How it works",
+                nav_advantages: "Benefits",
+                nav_pricing: "Pricing",
+                hero_sub: "I convert simple visitors into loyal customers through impactful advertising visuals and high-quality photoshoots.",
+                cta_start: "Start Project",
+                cta_contact: "Contact Me"
+            }
+        };
+
+        langToggle.addEventListener('click', () => {
+            currentLang = currentLang === 'fr' ? 'en' : 'fr';
+            langToggle.textContent = currentLang.toUpperCase();
+            
+            // Update text content
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[currentLang][key]) {
+                    el.textContent = translations[currentLang][key];
+                }
+            });
+        });
+    </script>
+</body>
+</html>
