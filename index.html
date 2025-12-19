@@ -300,29 +300,46 @@
 
     <!-- WIDGET CONFIGURATION -->
     <script>
-        window.N8NChatbotConfig = {
-            // REMPLACER L'URL CI-DESSOUS PAR VOTRE PROPRE WEBHOOK N8N
-            apiUrl: 'http://localhost:5678/webhook-test/chatbot', 
+    window.N8NChatbotConfig = {
+        // ⚠️ ATTENTION : Sur GitHub, 'localhost' ne marchera pas. 
+        // Mets ton lien de tunnel (ngrok/tunnel) ou ton lien n8n Cloud.
+        apiUrl: 'https://ton-vrai-webhook-n8n.com/webhook/...', 
+        
+        theme: 'dark',
+        colors: {
+            primary: '#fbbf24',      // Or
+            secondary: '#1e293b',    // Slate 800
+            background: '#0f172a',   // Slate 900
+            text: '#f8fafc',
+        },
+        texts: {
+            title: 'Studio Assistant',
+            placeholder: 'Je veux un visuel pour...',
+            welcomeMessage: '👋 Bonjour ! Prêt à sublimer votre image ? Envoyez-moi un vocal, une photo ou décrivez votre besoin.',
+            // Titre du menu quand on clique sur le trombone
+            fileTypeMenuTitle: 'Quel type de fichier ?', 
+        },
+        
+        // 1. ACTIVATION DES BOUTONS
+        features: {
+            attachments: true,      // ✅ Affiche le trombone
+            enableVoiceRecording: true, // ✅ Affiche le micro
+            markdown: true,         // Permet le gras/italique dans les réponses
+        },
+
+        // 2. CONFIGURATION DES FICHIERS (C'est ce qu'il manquait)
+        behavior: {
+            // Liste des types autorisés (J'ai ajouté 'video' pour toi)
+            allowedFileCategories: ['image', 'document', 'audio', 'video'], 
             
-            theme: 'dark', // Thème sombre pour aller avec le site
-            colors: {
-                primary: '#fbbf24',      // Couleur Or du site
-                secondary: '#1e293b',    // Slate 800
-                background: '#0f172a',   // Slate 900
-                text: '#f8fafc',
-            },
-            texts: {
-                title: 'Studio Assistant',
-                placeholder: 'Je veux un visuel pour...',
-                welcomeMessage: '👋 Bonjour ! Prêt à sublimer votre image ? Dites-moi ce dont vous avez besoin (Affiche, Photoshoot, Produit).',
-            },
-            features: {
-                attachments: true, // Permettre au client d'envoyer des exemples
-                enableVoiceRecording: true // Permettre les notes vocales
-            }
-        };
-    </script>
-    
+            // Taille max en MégaOctets (20 Mo est bien pour accepter de courtes vidéos)
+            maxFileSize: 20, 
+            
+            // On répète l'activation du vocal ici par sécurité selon la doc
+            enableVoiceRecording: true 
+        }
+    };
+</script>
     <!-- CHARGEMENT DU WIDGET -->
     <script src="https://widget.bovo-digital.tech/n8n-chat-widget.js" async></script>
 
@@ -366,3 +383,4 @@
 </body>
 
 </html>
+
