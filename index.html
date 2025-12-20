@@ -299,46 +299,40 @@
     </footer>
 
     <!-- WIDGET CONFIGURATION -->
+<!-- WIDGET CONFIGURATION -->
 <script>
-  window.N8NChatbotConfig = {
-    // 1. TON WEBHOOK (Local pour l'instant)
-    apiUrl: 'http://localhost:5678/webhook/chat', 
-    
-    // 2. APPARENCE
-    theme: 'dark',
-    colors: {
-      primary: '#fbbf24',      // Or
-      secondary: '#1e293b',    // Slate 800
-      background: '#0f172a',   // Slate 900
-      text: '#f8fafc',
-    },
-    
-    // 3. TEXTES
-    texts: {
-      title: 'Studio Assistant',
-      placeholder: 'Je veux un visuel pour...',
-      welcomeMessage: '👋 Bonjour ! Prêt à sublimer votre image ? Envoyez-moi un vocal, une photo ou décrivez votre besoin.',
-      fileTypeMenuTitle: 'Quel type de fichier ?',
-    },
-    
-    // 4. FONCTIONNALITÉS (D'après TA documentation)
-    features: {
-      attachments: true,      // ✅ Active le trombone
-      enableVoiceRecording: true, // ✅ Active le micro
-      markdown: true,
-    },
-    
-    // 5. COMPORTEMENT (D'après TA documentation)
-    behavior: {
-      allowedFileCategories: ['image', 'document', 'audio', 'video'], 
-      maxFileSize: 20,  // 20 Mo
-      enableVoiceRecording: true // On le redit ici par sécurité
-    }
-  };
+    window.N8NChatbotConfig = {
+        // VÉRIFIE BIEN CETTE URL DANS TON N8N (souvent c'est 'webhook' tout court)
+        apiUrl: 'http://localhost:5678/webhook/chat', 
+        
+        theme: 'dark',
+        colors: {
+            primary: '#fbbf24',
+            secondary: '#1e293b',
+            background: '#0f172a',
+            text: '#f8fafc',
+        },
+        texts: {
+            title: 'Studio Assistant',
+            placeholder: 'Message...',
+            welcomeMessage: '👋 Bonjour ! Envoyez un vocal ou une photo.',
+            fileTypeMenuTitle: 'Choisir un fichier', 
+        },
+        features: {
+            attachments: true,      // ✅
+            enableVoiceRecording: true, // ✅
+            markdown: true,
+        },
+        behavior: {
+            allowedFileCategories: ['image', 'document', 'audio', 'video'], 
+            maxFileSize: 20, 
+            enableVoiceRecording: true 
+        }
+    };
 </script>
 
-<!-- CHARGEMENT DU SCRIPT SPÉCIFIQUE DE TA DOC -->
-<script src="https://chats-4z6olbek3-william-merveille-aklamavo-s-projects.vercel.app/n8n-chat-widget.js"></script>
+<!-- CHANGEMENT ICI : UTILISATION DU CDN FIABLE -->
+<script src="https://cdn.jsdelivr.net/gh/JhumanJ/n8n-chat-widget@latest/dist/chat.bundle.min.js"></script>
     <!-- SCRIPTS LOGIQUE (Langue) -->
     <script>
         const langToggle = document.getElementById('lang-toggle');
@@ -379,6 +373,7 @@
 </body>
 
 </html>
+
 
 
 
