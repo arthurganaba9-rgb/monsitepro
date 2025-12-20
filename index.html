@@ -299,50 +299,46 @@
     </footer>
 
     <!-- WIDGET CONFIGURATION -->
-    <script>
-    window.N8NChatbotConfig = {
-        // ⚠️ ATTENTION : Sur GitHub, 'localhost' ne marchera pas. 
-        // Mets ton lien de tunnel (ngrok/tunnel) ou ton lien n8n Cloud.
-        apiUrl: 'http://localhost:5678/webhook-test/chatbot', 
-        
-        theme: 'dark',
-        colors: {
-            primary: '#fbbf24',      // Or
-            secondary: '#1e293b',    // Slate 800
-            background: '#0f172a',   // Slate 900
-            text: '#f8fafc',
-        },
-        texts: {
-            title: 'Studio Assistant',
-            placeholder: 'Je veux un visuel pour...',
-            welcomeMessage: '👋 Bonjour ! Prêt à sublimer votre image ? Envoyez-moi un vocal, une photo ou décrivez votre besoin.',
-            // Titre du menu quand on clique sur le trombone
-            fileTypeMenuTitle: 'Quel type de fichier ?', 
-        },
-        
-        // 1. ACTIVATION DES BOUTONS
-        features: {
-            attachments: true,      // ✅ Affiche le trombone
-            enableVoiceRecording: true, // ✅ Affiche le micro
-            markdown: true,         // Permet le gras/italique dans les réponses
-        },
-
-        // 2. CONFIGURATION DES FICHIERS (C'est ce qu'il manquait)
-        behavior: {
-            // Liste des types autorisés (J'ai ajouté 'video' pour toi)
-            allowedFileCategories: ['image', 'document', 'audio', 'video'], 
-            
-            // Taille max en MégaOctets (20 Mo est bien pour accepter de courtes vidéos)
-            maxFileSize: 20, 
-            
-            // On répète l'activation du vocal ici par sécurité selon la doc
-            enableVoiceRecording: true 
-        }
-    };
+<script>
+  window.N8NChatbotConfig = {
+    // 1. TON WEBHOOK (Local pour l'instant)
+    apiUrl: 'http://localhost:5678/webhook/chat', 
+    
+    // 2. APPARENCE
+    theme: 'dark',
+    colors: {
+      primary: '#fbbf24',      // Or
+      secondary: '#1e293b',    // Slate 800
+      background: '#0f172a',   // Slate 900
+      text: '#f8fafc',
+    },
+    
+    // 3. TEXTES
+    texts: {
+      title: 'Studio Assistant',
+      placeholder: 'Je veux un visuel pour...',
+      welcomeMessage: '👋 Bonjour ! Prêt à sublimer votre image ? Envoyez-moi un vocal, une photo ou décrivez votre besoin.',
+      fileTypeMenuTitle: 'Quel type de fichier ?',
+    },
+    
+    // 4. FONCTIONNALITÉS (D'après TA documentation)
+    features: {
+      attachments: true,      // ✅ Active le trombone
+      enableVoiceRecording: true, // ✅ Active le micro
+      markdown: true,
+    },
+    
+    // 5. COMPORTEMENT (D'après TA documentation)
+    behavior: {
+      allowedFileCategories: ['image', 'document', 'audio', 'video'], 
+      maxFileSize: 20,  // 20 Mo
+      enableVoiceRecording: true // On le redit ici par sécurité
+    }
+  };
 </script>
-    <!-- CHARGEMENT DU WIDGET -->
-    <script src="https://widget.bovo-digital.tech/n8n-chat-widget.js"></script>
 
+<!-- CHARGEMENT DU SCRIPT SPÉCIFIQUE DE TA DOC -->
+<script src="https://chats-4z6olbek3-william-merveille-aklamavo-s-projects.vercel.app/n8n-chat-widget.js"></script>
     <!-- SCRIPTS LOGIQUE (Langue) -->
     <script>
         const langToggle = document.getElementById('lang-toggle');
@@ -383,6 +379,7 @@
 </body>
 
 </html>
+
 
 
 
